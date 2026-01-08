@@ -3,7 +3,7 @@ const CONTAINERSIZE = 500;
 let grid = 16; 
 
 function isValidNum(num){
-    
+    return Number.isInteger(num) && num >= 0;
 }
 function makeGrid(size){
     container.innerHTML = "";
@@ -24,7 +24,11 @@ const btn =  document.querySelector(".btn");
 
 btn.addEventListener("click", () => {
     let squareSide = Number(prompt("How many squares per side"));
+    while (!isValidNum(squareSide)){
+        alert("Put a valid num");
+        squareSide = Number(prompt("How many squares per side"));
 
+    }
     makeGrid(squareSide);
 })
 
